@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BINGOCard.cs" />
+    <Compile Include="FileManager.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="MyList.cs" />
+    <Compile Include="NumList.cs" />
     <Compile Include="Number.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

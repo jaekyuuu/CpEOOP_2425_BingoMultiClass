@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CpEOOP_2425_BingoMultiClass
 {
-    internal class MyList
+    internal class NumList
     {
-        private string[] things = { };
+        private int[] things = { };
 
-        public void AddToList(string value)
+        public void AddToList(int value)
         {
-            string[] newArr = new string[things.Length + 1];
+            int[] newArr = new int[things.Length + 1];
 
             for (int x = 0; x < things.Length; x++)
                 newArr[x] = things[x];
@@ -22,21 +22,21 @@ namespace CpEOOP_2425_BingoMultiClass
             things = newArr;
         }
 
-        public string[] getArray()
+        public int[] getArray()
         {
             return things;
         }
 
-        public bool ValueContain(string value)
+        public bool ValueContain(int value)
         {
-            foreach (string a in things)
+            foreach (int a in things)
                 if (a == value)
                     return true;
 
             return false;
         }
 
-        public int FindValue(string value)
+        public int FindValue(int value)
         {
             for (int x = 0; x < things.Length; x++)
                 if (things[x] == value)
@@ -45,7 +45,7 @@ namespace CpEOOP_2425_BingoMultiClass
             return -1;
         }
 
-        public void RemoveValue(string value)
+        public void RemoveValue(int value)
         {
             int indexToRemove = FindValue(value);
 
@@ -54,7 +54,7 @@ namespace CpEOOP_2425_BingoMultiClass
 
         public void RemoveIndex(int index)
         {
-            string[] newArr = new string[things.Length - 1];
+            int[] newArr = new int[things.Length - 1];
 
             for (int x = 0; x < index; x++)
                 newArr[x] = things[x];
@@ -65,16 +65,12 @@ namespace CpEOOP_2425_BingoMultiClass
             things = newArr;
         }
 
-        public void RemoveAllValue(string value)
+        public void RemoveAllValue(int value)
         {
             while (ValueContain(value))
                 RemoveValue(value);
         }
 
-        public string[] GetList()
-        {
-            return things;
-        }
-
+        
     }
 }

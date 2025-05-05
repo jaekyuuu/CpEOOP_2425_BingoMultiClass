@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,14 @@ namespace CpEOOP_2425_BingoMultiClass
     internal class BINGOCard
     {
         private Number[,] _Card = new Number[5, 5];
-        private MyList _nums = new MyList();
+        private NumList _nums = new NumList();
 
         public void Initialize()
         {
             _Card = new Number[5, 5];
-            _nums = new MyList();
+            _nums = new NumList();
 
-            for(int x = 1; x < 76; x++)
+            for (int x = 1; x < 76; x++)
                 _nums.AddToList(x);
 
             for (int x = 0; x < _Card.GetLength(0); x++)
@@ -30,7 +31,7 @@ namespace CpEOOP_2425_BingoMultiClass
 
         public void GenerateCard()
         {
-            _nums = new MyList();
+            _nums = new NumList();
 
             for (int x = 1; x < 76; x++)
                 _nums.AddToList(x);
@@ -50,14 +51,33 @@ namespace CpEOOP_2425_BingoMultiClass
 
         public void Display()
         {
-            for(int x = 0; x < _Card.GetLength(0); x++)
+            for (int x = 0; x < _Card.GetLength(0); x++)
             {
-                for(int y = 0;  y < _Card.GetLength(1); y++)
+                for (int y = 0; y < _Card.GetLength(1); y++)
                 {
-                    Console.Write($"{_Card[x,y].getNumber()}\t");
+                    Console.Write($"{_Card[x, y].getNumber()}\t");
                 }
                 Console.WriteLine();
             }
+        }
+
+        public MyList Stringify()
+        {
+            MyList list = new MyList();
+            string temp = "";
+            list.AddToList("B,I,N,G,O");
+            for (int x = 0; x < _Card.GetLength(0); x++)
+            {
+                for (int y = 0; y < _Card.GetLength(1); y++)
+                {
+                    temp += $"{_Card[x, y].getNumber()},";
+                    //Console.Write($"{_Card[x, y].getNumber()}\t");
+                }
+                //Console.WriteLine();
+                list.AddToList(temp);
+                temp = "";
+            }
+            return list;
         }
     }
 }
